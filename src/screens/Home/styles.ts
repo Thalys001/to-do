@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
     height: 54,
     backgroundColor: '#262626',
     borderRadius: 6,
-    borderColor:'#5E60CE',
+    borderColor: '#5E60CE',
     borderWidth: 1,
     color: '#FFF',
     padding: 16,
@@ -36,5 +36,12 @@ export const styles = StyleSheet.create({
     backgroundColor: '#1E6F9F',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  created: {
+    color: '#4EA8DE',
+    fontSize: 14,
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    marginBottom: 20,
   }
 })

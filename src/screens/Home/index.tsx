@@ -50,6 +50,11 @@ export function Home() {
           <Plus />
         </TouchableOpacity>
       </View>
+      <View>
+        <Text style={styles.created}>
+          {`Criadas ${tasks.length}`}
+        </Text>
+      </View>
       <FlatList
         data={tasks}
         keyExtractor={item => item}
