@@ -5,16 +5,21 @@ import { styles } from './styles'
 import Trash from "../../../assets/icons/trash";
 import Check from "../../../assets/icons/check";
 
-export function Tasks() {
+type Props = {
+  text: string;
+  onRemove: () => void;
+}
+
+export function Tasks({text, onRemove}: Props) {
   return (
     <View style={styles.container}>
       <TouchableOpacity>
         <Check />
       </TouchableOpacity>
-      <Text style={styles.name}>
-        Integer urna interdum massa libero auctor neque turpis turpis semper.
+      <Text style={styles.text}>
+        {text}
       </Text>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={onRemove}>
         <Trash />
       </TouchableOpacity>
     </View>

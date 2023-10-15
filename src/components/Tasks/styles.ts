@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 12,
   },
-  name: {
+  text: {
     flex: 1,
     height: 40,
     fontSize: 16,
