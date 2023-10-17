@@ -9,6 +9,7 @@ import { Tasks } from "../../components/Tasks";
 export function Home() {
   const [tasks, setTasks] = useState<string[]>([]);
   const [tasksName, setTasksName] = useState('');
+  const [completedTasks, setCompletedTasks] = useState<string[]>([]);
 
   function handleTasksAdd() {
     tasksName ? setTasks(prevState => [...prevState, tasksName]) : null;
@@ -20,8 +21,9 @@ export function Home() {
       {
         text: 'Sim',
         onPress: () => {
-          setTasks(prevState => prevState.filter(tasks => tasks !== text)),
-            Alert.alert("Deletar", `a tarefa: ${text} foi deletada!`)
+          setTasks(prevState => prevState.filter(tasks => tasks !== text));
+          setCompletedTasks(prevState => prevState.filter(tasks => tasks !== text));
+          Alert.alert("Deletar", `a tarefa: ${text} foi deletada!`)
         }
       },
       {
@@ -29,6 +31,14 @@ export function Home() {
         style: 'cancel'
       }
     ])
+  }
+
+  function handleTaskComplete(text: string) {
+    if (completedTasks.includes(text)) {
+      setCompletedTasks((prevState) => prevState.filter((task) => task !== text));
+    } else {
+      setCompletedTasks((prevState) => [...prevState, text]);
+    }
   }
 
   return (
@@ -54,6 +64,9 @@ export function Home() {
         <Text style={styles.created}>
           {`Criadas ${tasks.length}`}
         </Text>
+        <Text style={styles.created}>
+          {`Concluidas ${completedTasks.length}`}
+        </Text>
       </View>
       <FlatList
         data={tasks}
@@ -63,6 +76,8 @@ export function Home() {
             key={item}
             text={item}
             onRemove={() => handleTasksRemove(item)}
+            onCheck={() => handleTaskComplete(item)}
+            completed={completedTasks.includes(item)}
           />
         )}
       />
