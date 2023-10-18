@@ -60,12 +60,12 @@ export function Home() {
           <Plus />
         </TouchableOpacity>
       </View>
-      <View>
+      <View style={styles.count}>
         <Text style={styles.created}>
-          {`Criadas ${tasks.length}`}
+          {`Criadas: ${tasks.length}`}
         </Text>
-        <Text style={styles.created}>
-          {`Concluidas ${completedTasks.length}`}
+        <Text style={styles.completed}>
+          {`Concluidas: ${completedTasks.length}`}
         </Text>
       </View>
       <FlatList

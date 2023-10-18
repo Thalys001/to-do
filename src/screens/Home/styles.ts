@@ -37,11 +37,21 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  count: {
+    flexDirection: 'row',
+    gap: 170,
+    marginBottom: 20,
+  },
   created: {
-    color: '#4EA8DE',
     fontSize: 14,
     fontStyle: 'normal',
     fontWeight: 'bold',
-    marginBottom: 20,
+    color: '#4EA8DE',
+  },
+  completed: {
+    fontSize: 14,
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    color: '#8284FA',
   }
 })
